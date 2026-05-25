@@ -12,7 +12,7 @@ BASE_URL = 'http://127.0.0.1:8000'
 def post_message(name, message):
     url = f"{BASE_URL}/messages"
     m = api.schemas.message.MessageBase(name=name, message=message)
-    requests.post(url, data=json.dumps(m.model_dump()))
+    requests.post(url, json=m.model_dump())
 
 
 def get_message(message_id):
